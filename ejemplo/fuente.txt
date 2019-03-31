@@ -1,0 +1,75 @@
+Inicio
+    er = /(a|b)*/;
+    af = AutomataFinito(
+        ["A", "B", "C"],
+        ["a", "b", "c"],
+        [
+["A", "a", "B"],
+["B", "b", "C"],
+["C", "c", "A"]
+],
+        "A",
+        ["C"]
+    );
+    ap = AutomataPila(
+        ["A", "B", "C"],
+        ["a", "b", "c"],
+        ["x", "y", "z", "$"],
+        [
+            ["A", "a", "$", "B", ["x", e]],
+            ["B", "b", "x", "C", []]
+        ],
+        "A",
+        "$",
+        ["B", "C"]
+    );
+    mt = MaquinaTuring(
+        ["A", "B", "C"],
+        ["0", "1", "b"],
+        "b",
+        ["0", "1"],
+        "A",
+        ["B"],
+        [
+            ["A", "0", "B", "1", D],
+            ["B", "1", "C", "1", I]
+        ]
+    );
+
+    agregar_estado(af, "D");
+eliminar_estado(af, "D");
+agregar_sim_entrada(af, "d");
+eliminar_sim_entrada(af, "d");
+agregar_trans_af(af, ["C", "b", "A"]);
+eliminar_trans_af(af, ["C", "b", "A"]);
+establecer_estado_ini(af, "B");
+agregar_estado_acept(af, "A");
+eliminar_estado_acept(af, "A");
+
+agregar_sim_pila(ap, "z");
+eliminar_sim_pila(ap, "z");
+agregar_trans_ap(ap, ["B", "x", "y", "C", []]);
+eliminar_trans_ap(ap, ["B", "x", "y", "C", []]);
+establecer_sim_ini_pila(ap, "x");
+
+agregar_sim_cinta(mt, "2");
+eliminar_sim_cinta(mt, "2");
+establecer_sim_blanco(mt, "0");
+agregar_trans_mt(mt, ["B", "1", "B", "1", D]);
+eliminar_trans_mt(mt, ["B", "1", "B", "1", D]);
+    
+af = er_a_af(er);    
+af2 = no_det_a_det(af);
+
+    af2 = minimizar_af(af);
+
+    af3 = union(af, af2);
+    af3 = interseccion(af, af2);
+    af3 = complemento(af);
+    af3 = diferencia(af, af2);
+    af3 = reverso(af);
+
+    graficar(af);
+
+    probar(af, "abc");
+Fin;

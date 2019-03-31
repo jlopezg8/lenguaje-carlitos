@@ -1,0 +1,725 @@
+<?xml version="1.0" encoding="UTF-8"?><_START variant="0">
+    <Prog variant="0">
+        <Inicio0/>
+        <Sentencias variant="1">
+            <Sentencia variant="0">
+                <SentenciaAsign variant="0">
+                    <Id0>er</Id0>
+                    <OP_ASIGN1/>
+                    <Constructor variant="0">
+                        <INICIO_ER0/>
+                        <CuantificadoER variant="0">
+                            <ER variant="4">
+                                <PAREN_IZQ0/>
+                                <UnionER variant="0">
+                                    <ALFANUM0>a</ALFANUM0>
+                                    <OP_UNION_ER1/>
+                                    <ALFANUM0>b</ALFANUM0>
+                                </UnionER>
+                                <PAREN_DER2/>
+                            </ER>
+                            <CUANTIFICADOR_0M_ER0/>
+                        </CuantificadoER>
+                        <FIN_ER2/>
+                    </Constructor>
+                </SentenciaAsign>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="0">
+                <SentenciaAsign variant="0">
+                    <Id0>af</Id0>
+                    <OP_ASIGN1/>
+                    <Constructor variant="1">
+                        <AutomataFinito0/>
+                        <INICIO_ARGS1/>
+                        <ParamsAF variant="0">
+                            <ListaEstados variant="0">
+                                <INICIO_LISTA0/>
+                                <Estados variant="1">
+                                    <CADENA0>A</CADENA0>
+                                    <COMA1/>
+                                    <CADENA0>B</CADENA0>
+                                    <COMA1/>
+                                    <CADENA0>C</CADENA0>
+                                </Estados>
+                                <FIN_LISTA2/>
+                            </ListaEstados>
+                            <COMA1/>
+                            <Alfabeto variant="0">
+                                <INICIO_LISTA0/>
+                                <Sims variant="1">
+                                    <CADENA0>a</CADENA0>
+                                    <COMA1/>
+                                    <CADENA0>b</CADENA0>
+                                    <COMA1/>
+                                    <CADENA0>c</CADENA0>
+                                </Sims>
+                                <FIN_LISTA2/>
+                            </Alfabeto>
+                            <COMA3/>
+                            <FuncTransAF variant="0">
+                                <INICIO_LISTA0/>
+                                <TranssAF variant="1">
+                                    <TransAF variant="0">
+                                        <INICIO_LISTA0/>
+                                        <CADENA0>A</CADENA0>
+                                        <COMA2/>
+                                        <CADENA0>a</CADENA0>
+                                        <COMA4/>
+                                        <CADENA0>B</CADENA0>
+                                        <FIN_LISTA6/>
+                                    </TransAF>
+                                    <COMA1/>
+                                    <TransAF variant="0">
+                                        <INICIO_LISTA0/>
+                                        <CADENA0>B</CADENA0>
+                                        <COMA2/>
+                                        <CADENA0>b</CADENA0>
+                                        <COMA4/>
+                                        <CADENA0>C</CADENA0>
+                                        <FIN_LISTA6/>
+                                    </TransAF>
+                                    <COMA1/>
+                                    <TransAF variant="0">
+                                        <INICIO_LISTA0/>
+                                        <CADENA0>C</CADENA0>
+                                        <COMA2/>
+                                        <CADENA0>c</CADENA0>
+                                        <COMA4/>
+                                        <CADENA0>A</CADENA0>
+                                        <FIN_LISTA6/>
+                                    </TransAF>
+                                </TranssAF>
+                                <FIN_LISTA2/>
+                            </FuncTransAF>
+                            <COMA5/>
+                            <CADENA0>A</CADENA0>
+                            <COMA7/>
+                            <ListaEstados variant="0">
+                                <INICIO_LISTA0/>
+                                <CADENA0>C</CADENA0>
+                                <FIN_LISTA2/>
+                            </ListaEstados>
+                        </ParamsAF>
+                        <FIN_ARGS3/>
+                    </Constructor>
+                </SentenciaAsign>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="0">
+                <SentenciaAsign variant="0">
+                    <Id0>ap</Id0>
+                    <OP_ASIGN1/>
+                    <Constructor variant="2">
+                        <AutomataPila0/>
+                        <INICIO_ARGS1/>
+                        <ParamsAP variant="0">
+                            <ListaEstados variant="0">
+                                <INICIO_LISTA0/>
+                                <Estados variant="1">
+                                    <CADENA0>A</CADENA0>
+                                    <COMA1/>
+                                    <CADENA0>B</CADENA0>
+                                    <COMA1/>
+                                    <CADENA0>C</CADENA0>
+                                </Estados>
+                                <FIN_LISTA2/>
+                            </ListaEstados>
+                            <COMA1/>
+                            <Alfabeto variant="0">
+                                <INICIO_LISTA0/>
+                                <Sims variant="1">
+                                    <CADENA0>a</CADENA0>
+                                    <COMA1/>
+                                    <CADENA0>b</CADENA0>
+                                    <COMA1/>
+                                    <CADENA0>c</CADENA0>
+                                </Sims>
+                                <FIN_LISTA2/>
+                            </Alfabeto>
+                            <COMA3/>
+                            <Alfabeto variant="0">
+                                <INICIO_LISTA0/>
+                                <Sims variant="1">
+                                    <CADENA0>x</CADENA0>
+                                    <COMA1/>
+                                    <CADENA0>y</CADENA0>
+                                    <COMA1/>
+                                    <CADENA0>z</CADENA0>
+                                    <COMA1/>
+                                    <CADENA0>$</CADENA0>
+                                </Sims>
+                                <FIN_LISTA2/>
+                            </Alfabeto>
+                            <COMA5/>
+                            <FuncTransAP variant="0">
+                                <INICIO_LISTA0/>
+                                <TranssAP variant="1">
+                                    <TransAP variant="0">
+                                        <INICIO_LISTA0/>
+                                        <CADENA0>A</CADENA0>
+                                        <COMA2/>
+                                        <CADENA0>a</CADENA0>
+                                        <COMA4/>
+                                        <CADENA0>$</CADENA0>
+                                        <COMA6/>
+                                        <CADENA0>B</CADENA0>
+                                        <COMA8/>
+                                        <Apilacion variant="1">
+                                            <INICIO_LISTA0/>
+                                            <SimsEntrada variant="1">
+                                                <CADENA0>x</CADENA0>
+                                                <COMA1/>
+                                                <EPSILON0/>
+                                            </SimsEntrada>
+                                            <FIN_LISTA2/>
+                                        </Apilacion>
+                                        <FIN_LISTA10/>
+                                    </TransAP>
+                                    <COMA1/>
+                                    <TransAP variant="0">
+                                        <INICIO_LISTA0/>
+                                        <CADENA0>B</CADENA0>
+                                        <COMA2/>
+                                        <CADENA0>b</CADENA0>
+                                        <COMA4/>
+                                        <CADENA0>x</CADENA0>
+                                        <COMA6/>
+                                        <CADENA0>C</CADENA0>
+                                        <COMA8/>
+                                        <Apilacion variant="0">
+                                            <INICIO_LISTA0/>
+                                            <FIN_LISTA1/>
+                                        </Apilacion>
+                                        <FIN_LISTA10/>
+                                    </TransAP>
+                                </TranssAP>
+                                <FIN_LISTA2/>
+                            </FuncTransAP>
+                            <COMA7/>
+                            <CADENA0>A</CADENA0>
+                            <COMA9/>
+                            <CADENA0>$</CADENA0>
+                            <COMA11/>
+                            <ListaEstados variant="0">
+                                <INICIO_LISTA0/>
+                                <Estados variant="1">
+                                    <CADENA0>B</CADENA0>
+                                    <COMA1/>
+                                    <CADENA0>C</CADENA0>
+                                </Estados>
+                                <FIN_LISTA2/>
+                            </ListaEstados>
+                        </ParamsAP>
+                        <FIN_ARGS3/>
+                    </Constructor>
+                </SentenciaAsign>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="0">
+                <SentenciaAsign variant="0">
+                    <Id0>mt</Id0>
+                    <OP_ASIGN1/>
+                    <Constructor variant="3">
+                        <MaquinaTuring0/>
+                        <INICIO_ARGS1/>
+                        <ParamsMT variant="0">
+                            <ListaEstados variant="0">
+                                <INICIO_LISTA0/>
+                                <Estados variant="1">
+                                    <CADENA0>A</CADENA0>
+                                    <COMA1/>
+                                    <CADENA0>B</CADENA0>
+                                    <COMA1/>
+                                    <CADENA0>C</CADENA0>
+                                </Estados>
+                                <FIN_LISTA2/>
+                            </ListaEstados>
+                            <COMA1/>
+                            <Alfabeto variant="0">
+                                <INICIO_LISTA0/>
+                                <Sims variant="1">
+                                    <CADENA0>0</CADENA0>
+                                    <COMA1/>
+                                    <CADENA0>1</CADENA0>
+                                    <COMA1/>
+                                    <CADENA0>b</CADENA0>
+                                </Sims>
+                                <FIN_LISTA2/>
+                            </Alfabeto>
+                            <COMA3/>
+                            <CADENA0>b</CADENA0>
+                            <COMA5/>
+                            <Alfabeto variant="0">
+                                <INICIO_LISTA0/>
+                                <Sims variant="1">
+                                    <CADENA0>0</CADENA0>
+                                    <COMA1/>
+                                    <CADENA0>1</CADENA0>
+                                </Sims>
+                                <FIN_LISTA2/>
+                            </Alfabeto>
+                            <COMA7/>
+                            <CADENA0>A</CADENA0>
+                            <COMA9/>
+                            <ListaEstados variant="0">
+                                <INICIO_LISTA0/>
+                                <CADENA0>B</CADENA0>
+                                <FIN_LISTA2/>
+                            </ListaEstados>
+                            <COMA11/>
+                            <FuncTransMT variant="0">
+                                <INICIO_LISTA0/>
+                                <TranssMT variant="1">
+                                    <TransMT variant="0">
+                                        <INICIO_LISTA0/>
+                                        <CADENA0>A</CADENA0>
+                                        <COMA2/>
+                                        <CADENA0>0</CADENA0>
+                                        <COMA4/>
+                                        <CADENA0>B</CADENA0>
+                                        <COMA6/>
+                                        <CADENA0>1</CADENA0>
+                                        <COMA8/>
+                                        <MOV_DER0/>
+                                        <FIN_LISTA10/>
+                                    </TransMT>
+                                    <COMA1/>
+                                    <TransMT variant="0">
+                                        <INICIO_LISTA0/>
+                                        <CADENA0>B</CADENA0>
+                                        <COMA2/>
+                                        <CADENA0>1</CADENA0>
+                                        <COMA4/>
+                                        <CADENA0>C</CADENA0>
+                                        <COMA6/>
+                                        <CADENA0>1</CADENA0>
+                                        <COMA8/>
+                                        <MOV_IZQ0/>
+                                        <FIN_LISTA10/>
+                                    </TransMT>
+                                </TranssMT>
+                                <FIN_LISTA2/>
+                            </FuncTransMT>
+                        </ParamsMT>
+                        <FIN_ARGS3/>
+                    </Constructor>
+                </SentenciaAsign>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="1">
+                <OpEd variant="0">
+                    <agregar_estado0/>
+                    <INICIO_ARGS1/>
+                    <Id2>af</Id2>
+                    <COMA3/>
+                    <CADENA0>D</CADENA0>
+                    <FIN_ARGS5/>
+                </OpEd>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="1">
+                <OpEd variant="2">
+                    <eliminar_estado0/>
+                    <INICIO_ARGS1/>
+                    <Id2>af</Id2>
+                    <COMA3/>
+                    <CADENA0>D</CADENA0>
+                    <FIN_ARGS5/>
+                </OpEd>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="1">
+                <OpEd variant="3">
+                    <agregar_sim_entrada0/>
+                    <INICIO_ARGS1/>
+                    <Id2>af</Id2>
+                    <COMA3/>
+                    <CADENA0>d</CADENA0>
+                    <FIN_ARGS5/>
+                </OpEd>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="1">
+                <OpEd variant="5">
+                    <eliminar_sim_entrada0/>
+                    <INICIO_ARGS1/>
+                    <Id2>af</Id2>
+                    <COMA3/>
+                    <CADENA0>d</CADENA0>
+                    <FIN_ARGS5/>
+                </OpEd>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="1">
+                <OpEd variant="6">
+                    <agregar_trans_af0/>
+                    <INICIO_ARGS1/>
+                    <Id2>af</Id2>
+                    <COMA3/>
+                    <TransAF variant="0">
+                        <INICIO_LISTA0/>
+                        <CADENA0>C</CADENA0>
+                        <COMA2/>
+                        <CADENA0>b</CADENA0>
+                        <COMA4/>
+                        <CADENA0>A</CADENA0>
+                        <FIN_LISTA6/>
+                    </TransAF>
+                    <FIN_ARGS5/>
+                </OpEd>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="1">
+                <OpEd variant="7">
+                    <eliminar_trans_af0/>
+                    <INICIO_ARGS1/>
+                    <Id2>af</Id2>
+                    <COMA3/>
+                    <TransAF variant="0">
+                        <INICIO_LISTA0/>
+                        <CADENA0>C</CADENA0>
+                        <COMA2/>
+                        <CADENA0>b</CADENA0>
+                        <COMA4/>
+                        <CADENA0>A</CADENA0>
+                        <FIN_LISTA6/>
+                    </TransAF>
+                    <FIN_ARGS5/>
+                </OpEd>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="1">
+                <OpEd variant="8">
+                    <establecer_estado_ini0/>
+                    <INICIO_ARGS1/>
+                    <Id2>af</Id2>
+                    <COMA3/>
+                    <CADENA0>B</CADENA0>
+                    <FIN_ARGS5/>
+                </OpEd>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="1">
+                <OpEd variant="9">
+                    <agregar_estado_acept0/>
+                    <INICIO_ARGS1/>
+                    <Id2>af</Id2>
+                    <COMA3/>
+                    <CADENA0>A</CADENA0>
+                    <FIN_ARGS5/>
+                </OpEd>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="1">
+                <OpEd variant="10">
+                    <eliminar_estado_acept0/>
+                    <INICIO_ARGS1/>
+                    <Id2>af</Id2>
+                    <COMA3/>
+                    <CADENA0>A</CADENA0>
+                    <FIN_ARGS5/>
+                </OpEd>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="1">
+                <OpEd variant="11">
+                    <agregar_sim_pila0/>
+                    <INICIO_ARGS1/>
+                    <Id2>ap</Id2>
+                    <COMA3/>
+                    <CADENA0>z</CADENA0>
+                    <FIN_ARGS5/>
+                </OpEd>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="1">
+                <OpEd variant="12">
+                    <eliminar_sim_pila0/>
+                    <INICIO_ARGS1/>
+                    <Id2>ap</Id2>
+                    <COMA3/>
+                    <CADENA0>z</CADENA0>
+                    <FIN_ARGS5/>
+                </OpEd>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="1">
+                <OpEd variant="13">
+                    <agregar_trans_ap0/>
+                    <INICIO_ARGS1/>
+                    <Id2>ap</Id2>
+                    <COMA3/>
+                    <TransAP variant="0">
+                        <INICIO_LISTA0/>
+                        <CADENA0>B</CADENA0>
+                        <COMA2/>
+                        <CADENA0>x</CADENA0>
+                        <COMA4/>
+                        <CADENA0>y</CADENA0>
+                        <COMA6/>
+                        <CADENA0>C</CADENA0>
+                        <COMA8/>
+                        <Apilacion variant="0">
+                            <INICIO_LISTA0/>
+                            <FIN_LISTA1/>
+                        </Apilacion>
+                        <FIN_LISTA10/>
+                    </TransAP>
+                    <FIN_ARGS5/>
+                </OpEd>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="1">
+                <OpEd variant="14">
+                    <eliminar_trans_ap0/>
+                    <INICIO_ARGS1/>
+                    <Id2>ap</Id2>
+                    <COMA3/>
+                    <TransAP variant="0">
+                        <INICIO_LISTA0/>
+                        <CADENA0>B</CADENA0>
+                        <COMA2/>
+                        <CADENA0>x</CADENA0>
+                        <COMA4/>
+                        <CADENA0>y</CADENA0>
+                        <COMA6/>
+                        <CADENA0>C</CADENA0>
+                        <COMA8/>
+                        <Apilacion variant="0">
+                            <INICIO_LISTA0/>
+                            <FIN_LISTA1/>
+                        </Apilacion>
+                        <FIN_LISTA10/>
+                    </TransAP>
+                    <FIN_ARGS5/>
+                </OpEd>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="1">
+                <OpEd variant="15">
+                    <establecer_sim_ini_pila0/>
+                    <INICIO_ARGS1/>
+                    <Id2>ap</Id2>
+                    <COMA3/>
+                    <CADENA0>x</CADENA0>
+                    <FIN_ARGS5/>
+                </OpEd>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="1">
+                <OpEd variant="16">
+                    <agregar_sim_cinta0/>
+                    <INICIO_ARGS1/>
+                    <Id2>mt</Id2>
+                    <COMA3/>
+                    <CADENA0>2</CADENA0>
+                    <FIN_ARGS5/>
+                </OpEd>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="1">
+                <OpEd variant="17">
+                    <eliminar_sim_cinta0/>
+                    <INICIO_ARGS1/>
+                    <Id2>mt</Id2>
+                    <COMA3/>
+                    <CADENA0>2</CADENA0>
+                    <FIN_ARGS5/>
+                </OpEd>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="1">
+                <OpEd variant="18">
+                    <establecer_sim_blanco0/>
+                    <INICIO_ARGS1/>
+                    <Id2>mt</Id2>
+                    <COMA3/>
+                    <CADENA0>0</CADENA0>
+                    <FIN_ARGS5/>
+                </OpEd>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="1">
+                <OpEd variant="19">
+                    <agregar_trans_mt0/>
+                    <INICIO_ARGS1/>
+                    <Id2>mt</Id2>
+                    <COMA3/>
+                    <TransMT variant="0">
+                        <INICIO_LISTA0/>
+                        <CADENA0>B</CADENA0>
+                        <COMA2/>
+                        <CADENA0>1</CADENA0>
+                        <COMA4/>
+                        <CADENA0>B</CADENA0>
+                        <COMA6/>
+                        <CADENA0>1</CADENA0>
+                        <COMA8/>
+                        <MOV_DER0/>
+                        <FIN_LISTA10/>
+                    </TransMT>
+                    <FIN_ARGS5/>
+                </OpEd>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="1">
+                <OpEd variant="20">
+                    <eliminar_trans_mt0/>
+                    <INICIO_ARGS1/>
+                    <Id2>mt</Id2>
+                    <COMA3/>
+                    <TransMT variant="0">
+                        <INICIO_LISTA0/>
+                        <CADENA0>B</CADENA0>
+                        <COMA2/>
+                        <CADENA0>1</CADENA0>
+                        <COMA4/>
+                        <CADENA0>B</CADENA0>
+                        <COMA6/>
+                        <CADENA0>1</CADENA0>
+                        <COMA8/>
+                        <MOV_DER0/>
+                        <FIN_LISTA10/>
+                    </TransMT>
+                    <FIN_ARGS5/>
+                </OpEd>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="0">
+                <SentenciaAsign variant="0">
+                    <Id0>af</Id0>
+                    <OP_ASIGN1/>
+                    <OpConv variant="0">
+                        <er_a_af0/>
+                        <INICIO_ARGS1/>
+                        <Id2>er</Id2>
+                        <FIN_ARGS3/>
+                    </OpConv>
+                </SentenciaAsign>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="0">
+                <SentenciaAsign variant="0">
+                    <Id0>af2</Id0>
+                    <OP_ASIGN1/>
+                    <OpConv variant="1">
+                        <no_det_a_det0/>
+                        <INICIO_ARGS1/>
+                        <Id2>af</Id2>
+                        <FIN_ARGS3/>
+                    </OpConv>
+                </SentenciaAsign>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="0">
+                <SentenciaAsign variant="0">
+                    <Id0>af2</Id0>
+                    <OP_ASIGN1/>
+                    <InvocFunc variant="2">
+                        <minimizar_af0/>
+                        <INICIO_ARGS1/>
+                        <Id2>af</Id2>
+                        <FIN_ARGS3/>
+                    </InvocFunc>
+                </SentenciaAsign>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="0">
+                <SentenciaAsign variant="0">
+                    <Id0>af3</Id0>
+                    <OP_ASIGN1/>
+                    <OpAF variant="0">
+                        <union0/>
+                        <INICIO_ARGS1/>
+                        <Id2>af</Id2>
+                        <COMA3/>
+                        <Id4>af2</Id4>
+                        <FIN_ARGS5/>
+                    </OpAF>
+                </SentenciaAsign>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="0">
+                <SentenciaAsign variant="0">
+                    <Id0>af3</Id0>
+                    <OP_ASIGN1/>
+                    <OpAF variant="1">
+                        <interseccion0/>
+                        <INICIO_ARGS1/>
+                        <Id2>af</Id2>
+                        <COMA3/>
+                        <Id4>af2</Id4>
+                        <FIN_ARGS5/>
+                    </OpAF>
+                </SentenciaAsign>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="0">
+                <SentenciaAsign variant="0">
+                    <Id0>af3</Id0>
+                    <OP_ASIGN1/>
+                    <OpAF variant="2">
+                        <complemento0/>
+                        <INICIO_ARGS1/>
+                        <Id2>af</Id2>
+                        <FIN_ARGS3/>
+                    </OpAF>
+                </SentenciaAsign>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="0">
+                <SentenciaAsign variant="0">
+                    <Id0>af3</Id0>
+                    <OP_ASIGN1/>
+                    <OpAF variant="3">
+                        <diferencia0/>
+                        <INICIO_ARGS1/>
+                        <Id2>af</Id2>
+                        <COMA3/>
+                        <Id4>af2</Id4>
+                        <FIN_ARGS5/>
+                    </OpAF>
+                </SentenciaAsign>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="0">
+                <SentenciaAsign variant="0">
+                    <Id0>af3</Id0>
+                    <OP_ASIGN1/>
+                    <OpAF variant="4">
+                        <reverso0/>
+                        <INICIO_ARGS1/>
+                        <Id2>af</Id2>
+                        <FIN_ARGS3/>
+                    </OpAF>
+                </SentenciaAsign>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="1">
+                <Proc variant="1">
+                    <graficar0/>
+                    <INICIO_ARGS1/>
+                    <Id2>af</Id2>
+                    <FIN_ARGS3/>
+                </Proc>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Sentencia variant="1">
+                <Proc variant="2">
+                    <probar0/>
+                    <INICIO_ARGS1/>
+                    <Id2>af</Id2>
+                    <COMA3/>
+                    <CADENA4>abc</CADENA4>
+                    <FIN_ARGS5/>
+                </Proc>
+                <FIN_SENTENCIA1/>
+            </Sentencia>
+            <Vacio variant="0"/>
+        </Sentencias>
+        <Fin2/>
+        <FIN_SENTENCIA3/>
+    </Prog>
+    <EOF1/>
+</_START>

@@ -1,0 +1,337 @@
+/* Gramática CUP del lenguaje Carlitos. */
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java_cup.runtime.*;
+import java.util.List;
+import javax.xml.stream.XMLOutputFactory;
+import javax.xml.stream.XMLStreamWriter;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
+
+parser code {:
+    // Conecta este analizador sintáctico al léxico:
+    /*AnalizadorLexico s;
+    AnalizadorSintactico(AnalizadorLexico s) { this.s = s; }*/
+
+    public static AnalizadorSintactico newInstance(String rutaArchivoEntrada)
+        throws FileNotFoundException
+    {
+        ComplexSymbolFactory csf = new ComplexSymbolFactory();
+        AnalizadorLexico al = new AnalizadorLexico(
+            new BufferedReader(new FileReader(new File(rutaArchivoEntrada))),
+            csf
+        );
+        ScannerBuffer sb = new ScannerBuffer(al);
+        return new AnalizadorSintactico(sb, csf, al);
+    }
+
+    AnalizadorLexico al;
+    ScannerBuffer sb;
+    Symbol s;
+
+    public AnalizadorSintactico(
+        ScannerBuffer sb, ComplexSymbolFactory csf, AnalizadorLexico al
+    ) {
+        super(sb, csf);
+        this.sb = sb;
+        this.al = al;
+    }
+
+    // public Symbol parse() throws Exception
+    public void analizar() throws Exception {
+        s = parse();
+    }
+
+    public List<String> getTokens() throws Exception {
+        if (s == null) {
+            analizar();
+        }
+        return al.getTokens();
+    }
+
+    public void generarXML(String rutaArchivoSalida) throws Exception {
+        if (s == null) {
+            analizar();
+        }
+        File archivoSalida = new File(rutaArchivoSalida);
+        XMLStreamWriter sw = XMLOutputFactory.newInstance()
+            .createXMLStreamWriter(
+                new FileOutputStream(archivoSalida), "utf-8"
+            );
+        XMLElement e = (XMLElement) s.value;
+        XMLElement.dump(sb, sw, e);
+
+        // Transforma el árbol de sintáxis concreta en un AST:
+        File archivoSalidaAST = Paths.get(archivoSalida.getParent(), "ast.xml")
+            .toFile();
+        TransformerFactory.newInstance()
+            .newTransformer(new StreamSource(new File("src/main/cup/tree.xsl")))
+            .transform(
+                new StreamSource(archivoSalida),
+                new StreamResult(archivoSalidaAST)
+            );
+
+        // Transforma el AST en una versión HTML renderizada:
+        TransformerFactory.newInstance()
+            .newTransformer(
+                new StreamSource(new File("src/main/cup/tree-view.xsl"))
+            ).transform(
+                new StreamSource(archivoSalidaAST),
+                new StreamResult(
+                    Paths.get(archivoSalida.getParent(), "ast.html").toFile()
+                )
+            );
+
+        Files.copy(
+            Paths.get("src/main/cup/tree-view.css"),
+            Paths.get(archivoSalida.getParent(), "tree-view.css")
+        );
+    }
+:}
+
+// Define cómo conectarse al analizador léxico:
+//init with {: s.init(); :}; no hay ningún AnalizadorLexico::init
+//scan with {: return s.next_token(); :};
+
+// Tokens retornados por el analizador léxico:
+terminal
+    Inicio,
+    AutomataFinito,
+    AutomataPila,
+    MaquinaTuring,
+    agregar_estado,
+    editar_estado,
+    eliminar_estado,
+    agregar_sim_entrada,
+    editar_sim_entrada,
+    eliminar_sim_entrada,
+    agregar_trans_af,
+    eliminar_trans_af,
+    establecer_estado_ini,
+    agregar_estado_acept,
+    eliminar_estado_acept,
+    agregar_sim_pila,
+    eliminar_sim_pila,
+    agregar_trans_ap,
+    eliminar_trans_ap,
+    establecer_sim_ini_pila,
+    agregar_sim_cinta,
+    eliminar_sim_cinta,
+    establecer_sim_blanco,
+    agregar_trans_mt,
+    eliminar_trans_mt,
+    er_a_af,
+    no_det_a_det,
+    minimizar_af,
+    union,
+    interseccion,
+    complemento,
+    diferencia,
+    reverso,
+    graficar,
+    probar,
+    Fin,
+    OP_ASIGN,
+    INICIO_ER,
+    FIN_SENTENCIA,
+    INICIO_ARGS,
+    FIN_ARGS,
+    INICIO_LISTA,
+    FIN_LISTA,
+    COMA,
+    EPSILON,
+    MOV_IZQ,
+    MOV_DER,
+    Id,
+    FIN_ER,
+    ALFANUM,
+    OP_UNION_ER,
+    CUANTIFICADOR_01_ER,
+    CUANTIFICADOR_0M_ER,
+    CUANTIFICADOR_1M_ER,
+    PAREN_IZQ,
+    PAREN_DER,
+    CADENA;
+
+non terminal
+    Prog,
+    Sentencias,
+    Vacio,
+    Sentencia,
+    SentenciaAsign,
+    InvocFunc,
+    Constructor,
+    ER,
+    UnionER,
+    ConcatER,
+    CuantificadoER,
+    Cuantificador,
+    ParamsAF,
+    ListaEstados,
+    Estados,
+    Estado,
+    Alfabeto,
+    Sims,
+    Sim,
+    FuncTransAF,
+    TranssAF,
+    TransAF,
+    SimEntrada,
+    EstadoActual,
+    EstadoSig,
+    EstadoIni,
+    EstadosAcept,
+    ParamsAP,
+    AlfabetoEntrada,
+    AlfabetoPila,
+    FuncTransAP,
+    TranssAP,
+    TransAP,
+    TopePila,
+    Apilacion,
+    SimsEntrada,
+    SimIniPila,
+    ParamsMT,
+    AlfabetoCinta,
+    SimBlanco,
+    FuncTransMT,
+    TranssMT,
+    TransMT,
+    NuevoSim,
+    Mov,
+    OpConv,
+    OpAF,
+    Proc,
+    OpEd;
+
+precedence left PAREN_IZQ, PAREN_DER;
+precedence left ALFANUM;
+precedence left CUANTIFICADOR_01_ER, CUANTIFICADOR_0M_ER, CUANTIFICADOR_1M_ER;
+precedence left OP_UNION_ER;
+
+
+// Gramática
+
+Prog ::= Inicio Sentencias Fin FIN_SENTENCIA;
+Sentencias ::= Vacio | Sentencia Sentencias;
+Vacio ::= ;
+Sentencia ::= SentenciaAsign FIN_SENTENCIA | Proc FIN_SENTENCIA;
+SentenciaAsign ::= Id OP_ASIGN InvocFunc;
+InvocFunc ::=
+    Constructor
+    | OpConv
+    | minimizar_af INICIO_ARGS Id FIN_ARGS
+    | OpAF;
+
+Constructor ::=
+    INICIO_ER ER FIN_ER
+    | AutomataFinito INICIO_ARGS ParamsAF FIN_ARGS
+    | AutomataPila INICIO_ARGS ParamsAP FIN_ARGS
+    | MaquinaTuring INICIO_ARGS ParamsMT FIN_ARGS;
+
+ER ::=
+    ALFANUM
+    | UnionER
+    | ConcatER
+    | CuantificadoER
+    | PAREN_IZQ ER PAREN_DER;
+
+UnionER ::= ER OP_UNION_ER ER;
+ConcatER ::= ER ER;
+CuantificadoER ::= ER Cuantificador;
+Cuantificador ::=
+    CUANTIFICADOR_01_ER
+    | CUANTIFICADOR_0M_ER
+    | CUANTIFICADOR_1M_ER;
+
+ParamsAF ::=
+    ListaEstados COMA Alfabeto COMA FuncTransAF COMA EstadoIni COMA
+        EstadosAcept;
+
+ListaEstados ::= INICIO_LISTA Estados FIN_LISTA;
+Estados ::= Estado | Estado COMA Estados;
+Estado ::= CADENA;
+Alfabeto ::= INICIO_LISTA Sims FIN_LISTA;
+Sims ::= Sim | Sim COMA Sims;
+Sim ::= CADENA;
+FuncTransAF ::= INICIO_LISTA TranssAF FIN_LISTA;
+TranssAF ::= TransAF | TransAF COMA TranssAF;
+TransAF ::= INICIO_LISTA EstadoActual COMA SimEntrada COMA EstadoSig FIN_LISTA;
+SimEntrada ::= Sim | EPSILON;
+EstadoActual ::= Estado;
+EstadoSig ::= Estado;
+EstadoIni ::= Estado;
+EstadosAcept ::= ListaEstados;
+
+ParamsAP ::=
+    ListaEstados COMA AlfabetoEntrada COMA AlfabetoPila COMA FuncTransAP COMA
+        EstadoIni COMA SimIniPila COMA EstadosAcept;
+
+AlfabetoEntrada ::= Alfabeto;
+AlfabetoPila ::= Alfabeto;
+FuncTransAP ::= INICIO_LISTA TranssAP FIN_LISTA;
+TranssAP ::= TransAP | TransAP COMA TranssAP;
+TransAP ::=
+    INICIO_LISTA EstadoActual COMA SimEntrada COMA TopePila COMA EstadoSig COMA
+        Apilacion FIN_LISTA;
+
+TopePila ::= Sim;
+Apilacion ::= INICIO_LISTA FIN_LISTA | INICIO_LISTA SimsEntrada FIN_LISTA;
+SimsEntrada ::= SimEntrada | SimEntrada COMA SimsEntrada;
+SimIniPila ::= Sim;
+
+ParamsMT ::=
+    ListaEstados COMA AlfabetoCinta COMA SimBlanco COMA AlfabetoEntrada COMA
+        EstadoIni COMA EstadosAcept COMA FuncTransMT;
+
+AlfabetoCinta ::= Alfabeto;
+SimBlanco ::= Sim;
+FuncTransMT ::= INICIO_LISTA TranssMT FIN_LISTA;
+TranssMT ::= TransMT | TransMT COMA TranssMT;
+TransMT ::=
+    INICIO_LISTA EstadoActual COMA Sim COMA EstadoSig COMA NuevoSim COMA Mov
+        FIN_LISTA;
+
+NuevoSim ::= Sim;
+Mov ::= MOV_IZQ | MOV_DER;
+
+OpConv ::=
+    er_a_af INICIO_ARGS Id FIN_ARGS
+    | no_det_a_det INICIO_ARGS Id FIN_ARGS;
+
+OpAF ::=
+    union INICIO_ARGS Id COMA Id FIN_ARGS
+    | interseccion INICIO_ARGS Id COMA Id FIN_ARGS
+    | complemento INICIO_ARGS Id FIN_ARGS
+    | diferencia INICIO_ARGS Id COMA Id FIN_ARGS
+    | reverso INICIO_ARGS Id FIN_ARGS;
+
+Proc ::=
+    OpEd
+    | graficar INICIO_ARGS Id FIN_ARGS
+    | probar INICIO_ARGS Id COMA CADENA FIN_ARGS;
+
+OpEd ::=
+    agregar_estado INICIO_ARGS Id COMA Estado FIN_ARGS
+    | editar_estado INICIO_ARGS Id COMA Estado COMA Estado FIN_ARGS
+    | eliminar_estado INICIO_ARGS Id COMA Estado FIN_ARGS
+    | agregar_sim_entrada INICIO_ARGS Id COMA Sim FIN_ARGS
+    | editar_sim_entrada INICIO_ARGS Id COMA Sim COMA Sim FIN_ARGS
+    | eliminar_sim_entrada INICIO_ARGS Id COMA Sim FIN_ARGS
+    | agregar_trans_af INICIO_ARGS Id COMA TransAF FIN_ARGS
+    | eliminar_trans_af INICIO_ARGS Id COMA TransAF FIN_ARGS
+    | establecer_estado_ini INICIO_ARGS Id COMA Estado FIN_ARGS
+    | agregar_estado_acept INICIO_ARGS Id COMA Estado FIN_ARGS
+    | eliminar_estado_acept INICIO_ARGS Id COMA Estado FIN_ARGS
+    | agregar_sim_pila INICIO_ARGS Id COMA Sim FIN_ARGS
+    | eliminar_sim_pila INICIO_ARGS Id COMA Sim FIN_ARGS
+    | agregar_trans_ap INICIO_ARGS Id COMA TransAP FIN_ARGS
+    | eliminar_trans_ap INICIO_ARGS Id COMA TransAP FIN_ARGS
+    | establecer_sim_ini_pila INICIO_ARGS Id COMA Sim FIN_ARGS
+    | agregar_sim_cinta INICIO_ARGS Id COMA Sim FIN_ARGS
+    | eliminar_sim_cinta INICIO_ARGS Id COMA Sim FIN_ARGS
+    | establecer_sim_blanco INICIO_ARGS Id COMA Sim FIN_ARGS
+    | agregar_trans_mt INICIO_ARGS Id COMA TransMT FIN_ARGS
+    | eliminar_trans_mt INICIO_ARGS Id COMA TransMT FIN_ARGS;
